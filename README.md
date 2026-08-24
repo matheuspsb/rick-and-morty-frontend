@@ -8,6 +8,7 @@ Frontend em React para consumir o [rick-morty-backend](../rick-morty-backend).
 - Tailwind CSS
 - React Hook Form
 - TanStack Query
+- Axios (services REST)
 - Vitest + Testing Library
 
 ## Instalação
@@ -36,7 +37,7 @@ npm run test:watch
 
 ```
 src/
-  api/        # chamadas ao backend (fetch + endpoints)
+  services/   # cliente HTTP (axios) e services REST por recurso
   lib/        # configuração de bibliotecas (query client)
   types/      # tipos compartilhados com o backend
   test/       # setup do ambiente de testes

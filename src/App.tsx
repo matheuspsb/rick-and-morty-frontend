@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
-import { getCharacter } from "./api/characters";
+import { characterService } from "./services/characterService.service";
 
 interface SearchForm {
   id: string;
@@ -15,7 +15,7 @@ function App() {
 
   const { data, error, isFetching } = useQuery({
     queryKey: ["character", submittedId],
-    queryFn: () => getCharacter(Number(submittedId)),
+    queryFn: () => characterService.getById(Number(submittedId)),
     enabled: submittedId !== "" && !Number.isNaN(Number(submittedId)),
   });
 
