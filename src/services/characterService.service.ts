@@ -2,12 +2,12 @@ import { httpClient } from "../lib/httpClient";
 import type { Character } from "../types/character";
 
 export const characterService = {
-  async getById(id: number) {
+  getById: async (id: number): Promise<Character> => {
     const res = await httpClient.get<Character>(`/character/${id}`);
     return res.data;
   },
 
-  async getByEpisodes(episodeIds: string) {
+  getByEpisodes: async (episodeIds: string): Promise<Character[]> => {
     const res = await httpClient.get<Character[]>(`/episodes/${episodeIds}/characters`);
     return res.data;
   },
