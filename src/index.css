@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+@theme {
+  /* Palette — semantic tokens from the Field Archive UI guide */
+  --color-archive-bg: #f4f1ea;
+  --color-archive-panel: #faf8f3;
+  --color-archive-texture: #e6e2d8;
+  --color-archive-ink: #1f1f1c;
+  --color-archive-line: #b8b3a8;
+  --color-archive-muted: #74615b;
+  --color-archive-neutral: #8a8e90;
+  --color-archive-accent: #005f56;
+  --color-status-alive: #3c7a57;
+  --color-status-dead: #74615b;
+  --color-status-unknown: #8a8e90;
+  --color-archive-error-400: #b8743c;
+  --color-archive-error-404: #6b5a7d;
+
+  /* Typography */
+  --font-display: "Oswald", ui-sans-serif, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Font-size scale (archive editorial density) */
+  --text-archive-2xs: 9px;
+  --text-archive-xs: 10.5px;
+  --text-archive-sm: 11px;
+  --text-archive-base: 12.5px;
+  --text-archive-md: 14px;
+  --text-archive-lg: 15.5px;
+  --text-archive-xl: 17px;
+  --text-archive-2xl: 19px;
+  --text-archive-3xl: 22px;
+  --text-archive-4xl: 25px;
+  --text-archive-5xl: 38px;
+
+  /* Letter-spacing scale */
+  --tracking-archive-tight: 0.01em;
+  --tracking-archive-snug: 0.05em;
+  --tracking-archive-normal: 0.07em;
+  --tracking-archive-wide: 0.09em;
+  --tracking-archive-wider: 0.11em;
+  --tracking-archive-widest: 0.13em;
+
+  /* Portrait aspect ratios */
+  --aspect-archive-card: 1 / 0.94;
+  --aspect-archive-portrait: 1 / 1.08;
+
+  /* Shared corner radius for cards, inputs and panels */
+  --radius-archive: 2px;
+}
+
+/* Diagonal hatch texture used as the entity-portrait placeholder/fallback. */
+@utility archive-texture {
+  background-color: var(--color-archive-texture);
+  background-image: repeating-linear-gradient(135deg, rgb(184 179 168 / 0.55) 0 1px, transparent 1px 7px);
+}
+
+body {
+  background-color: var(--color-archive-bg);
+  color: var(--color-archive-ink);
+}

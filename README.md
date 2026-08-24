@@ -1,15 +1,22 @@
 # Rick and Morty Frontend
 
-Frontend em React para consumir o [rick-morty-backend](../rick-morty-backend).
+Frontend em React (Field Archive) para consumir o [rick-morty-backend](../rick-morty-backend). Interface baseada em
+[rick_morty_field_archive_ui_guide.md](./rick_morty_field_archive_ui_guide.md) e no protótipo
+[Field Archive.dc.html](./Field%20Archive.dc.html).
 
 ## Stack
 
 - React + TypeScript (Vite)
-- Tailwind CSS
+- Tailwind CSS v4 (tema centralizado via `@theme` em [src/index.css](./src/index.css))
 - React Hook Form
 - TanStack Query
 - Axios (services REST)
 - Vitest + Testing Library
+- ESLint (`typescript-eslint`, type-checked)
+
+> **Nota de versão:** o `typescript` deste projeto está fixado em `^6.0.x`. A versão `7.x` (usada no backend) ainda
+> não é suportada pelo `typescript-eslint` ([issue #10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940)),
+> e o lint com checagem de tipos é um requisito deste projeto.
 
 ## Instalação
 
@@ -26,21 +33,34 @@ npm run dev
 
 Por padrão espera o backend em `http://localhost:3000` (variável `VITE_API_URL`).
 
-## Testes
+## Testes e qualidade
 
 ```bash
-npm test
+npm test         # vitest
 npm run test:watch
+npm run lint      # eslint (type-checked)
+npm run build     # tsc -b && vite build
 ```
 
 ## Estrutura
 
 ```
 src/
+  constants/  # tokens não-visuais: paginação, mensagens, grid templates, tema de status
+  utils/      # funções puras (validação de IDs, paginação, formatação) — testadas isoladamente
+  hooks/      # useEpisodeQuery, useObservedEntities, usePagination, useSelectedEntity
   services/   # services REST por recurso (consomem o httpClient)
   lib/        # configuração de bibliotecas (query client, cliente HTTP axios)
   types/      # tipos compartilhados com o backend
-  test/       # setup do ambiente de testes
-  App.tsx     # componente raiz
+  components/
+    common/     # StatusIndicator, EntityPortrait
+    layout/     # ArchiveHeader, ArchiveSidebar, ArchiveWorkspace
+    query/      # EpisodeQueryForm
+    entities/   # grid, card, skeleton, paginação, estados vazio/erro
+    detail/     # painel de detalhe da entidade selecionada
+  pages/
+    FieldArchivePage.tsx  # composition root da tela
+  test/       # setup do ambiente de testes e fixtures
+  App.tsx     # monta a página
   main.tsx    # entrypoint (providers)
 ```
