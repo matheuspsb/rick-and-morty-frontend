@@ -37,8 +37,8 @@ npm run test:watch
 
 ```
 src/
-  services/   # cliente HTTP (axios) e services REST por recurso
-  lib/        # configuração de bibliotecas (query client)
+  services/   # services REST por recurso (consomem o httpClient)
+  lib/        # configuração de bibliotecas (query client, cliente HTTP axios)
   types/      # tipos compartilhados com o backend
   test/       # setup do ambiente de testes
   App.tsx     # componente raiz

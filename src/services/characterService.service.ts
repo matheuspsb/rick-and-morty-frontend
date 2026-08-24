@@ -1,4 +1,4 @@
-import { httpClient } from "./httpClient";
+import { httpClient } from "../lib/httpClient";
 import type { Character } from "../types/character";
 
 export const characterService = {
