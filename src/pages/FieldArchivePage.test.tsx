@@ -35,7 +35,7 @@ describe("FieldArchivePage", () => {
   it("shows the empty state before any query is submitted", () => {
     renderPage();
 
-    expect(screen.getByText("FIELD ARCHIVE READY")).toBeInTheDocument();
+    expect(screen.getByText("ARQUIVO PRONTO")).toBeInTheDocument();
     expect(getByEpisodesMock).not.toHaveBeenCalled();
   });
 

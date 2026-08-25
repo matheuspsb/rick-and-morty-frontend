@@ -66,15 +66,15 @@ export function EntityDetailPanel({ entity }: EntityDetailPanelProps) {
 
           <dl className={`grid ${LABEL_COLUMN_NARROW} gap-y-3 font-mono text-archive-sm tracking-archive-wide`}>
             <div className="contents">
-              <dt className="text-archive-muted">SPECIES</dt>
+              <dt className="text-archive-muted">ESPÉCIE</dt>
               <dd className="uppercase">{entity.species}</dd>
             </div>
             <div className="contents">
-              <dt className="text-archive-muted">TYPE</dt>
+              <dt className="text-archive-muted">TIPO</dt>
               <dd className="uppercase">{entity.type || "—"}</dd>
             </div>
             <div className="contents">
-              <dt className="text-archive-muted">GENDER</dt>
+              <dt className="text-archive-muted">GÊNERO</dt>
               <dd className="uppercase">{entity.gender}</dd>
             </div>
           </dl>

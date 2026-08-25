@@ -11,7 +11,7 @@ export function EntitySummaryBar({ count, episodeIds }: EntitySummaryBarProps) {
       <p className="font-display text-archive-3xl tracking-archive-snug">{count} PERSONAGENS OBSERVADOS</p>
       <div className="flex flex-wrap gap-8 font-mono text-archive-sm tracking-archive-wide text-archive-muted sm:ml-auto">
         <span>EPISÓDIOS: {formatEpisodeIdsForDisplay(episodeIds)}</span>
-        <span>RETRIEVED: {count} RECORDS</span>
+        <span>RECUPERADOS: {count} REGISTROS</span>
       </div>
     </div>
   );

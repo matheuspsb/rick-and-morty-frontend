@@ -1,6 +1,6 @@
 export const EMPTY_ARCHIVE_MESSAGE = {
-  title: "FIELD ARCHIVE READY",
-  description: "Enter one or more episode IDs to retrieve observed entities.",
+  title: "ARQUIVO PRONTO",
+  description: "Digite um ou mais IDs de episódio para consultar os personagens observados.",
 } as const;
 
 export const INVALID_EPISODE_IDS_MESSAGE = {
@@ -20,6 +20,6 @@ export const ARCHIVE_CONNECTION_ERROR_MESSAGE = {
 } as const;
 
 export const EMPTY_ENTITY_DETAIL_MESSAGE = {
-  title: "NO ENTITY SELECTED",
-  description: "Select an observed entity from the archive to view its record.",
+  title: "NENHUM PERSONAGEM SELECIONADO",
+  description: "Selecione um personagem observado no arquivo para ver seu registro.",
 } as const;
