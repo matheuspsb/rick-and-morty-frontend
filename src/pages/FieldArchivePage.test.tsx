@@ -44,9 +44,9 @@ describe("FieldArchivePage", () => {
     renderPage();
 
     await user.type(screen.getByPlaceholderText("10,28"), "abc");
-    await user.click(screen.getByRole("button", { name: "LOAD ARCHIVE" }));
+    await user.click(screen.getByRole("button", { name: "CARREGAR ARQUIVO" }));
 
-    expect(await screen.findByRole("alert")).toHaveTextContent(/numeric episode identifiers/i);
+    expect(await screen.findByRole("alert")).toHaveTextContent(/identificadores numéricos de episódio/i);
     expect(getByEpisodesMock).not.toHaveBeenCalled();
   });
 
@@ -56,11 +56,11 @@ describe("FieldArchivePage", () => {
     renderPage();
 
     await user.type(screen.getByPlaceholderText("10,28"), "10,28");
-    await user.click(screen.getByRole("button", { name: "LOAD ARCHIVE" }));
+    await user.click(screen.getByRole("button", { name: "CARREGAR ARQUIVO" }));
 
     await waitFor(() => expect(getByEpisodesMock).toHaveBeenCalledWith("10,28"));
 
-    expect(await screen.findByText("3 OBSERVED ENTITIES")).toBeInTheDocument();
+    expect(await screen.findByText("3 PERSONAGENS OBSERVADOS")).toBeInTheDocument();
     expect(screen.getAllByText("Rick Sanchez")).toHaveLength(2);
 
     await user.click(screen.getByRole("button", { name: /morty smith/i }));
@@ -74,8 +74,8 @@ describe("FieldArchivePage", () => {
     renderPage();
 
     await user.type(screen.getByPlaceholderText("10,28"), "9999");
-    await user.click(screen.getByRole("button", { name: "LOAD ARCHIVE" }));
+    await user.click(screen.getByRole("button", { name: "CARREGAR ARQUIVO" }));
 
-    expect(await screen.findByText("NO EPISODE RECORD FOUND")).toBeInTheDocument();
+    expect(await screen.findByText("NENHUM REGISTRO DE EPISÓDIO ENCONTRADO")).toBeInTheDocument();
   });
 });

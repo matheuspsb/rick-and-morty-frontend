@@ -4,19 +4,19 @@ export const EMPTY_ARCHIVE_MESSAGE = {
 } as const;
 
 export const INVALID_EPISODE_IDS_MESSAGE = {
-  title: "INVALID EPISODE IDENTIFIER",
-  description: "The archive accepts only numeric episode identifiers.",
+  title: "IDENTIFICADOR DE EPISÓDIO INVÁLIDO",
+  description: "O arquivo aceita apenas identificadores numéricos de episódio.",
   examples: ["10", "28", "10,28"],
 } as const;
 
 export const EPISODE_NOT_FOUND_MESSAGE = {
-  title: "NO EPISODE RECORD FOUND",
-  description: "None of the supplied episode IDs exist in the archive.",
+  title: "NENHUM REGISTRO DE EPISÓDIO ENCONTRADO",
+  description: "Nenhum dos IDs de episódio informados existe no arquivo.",
 } as const;
 
 export const ARCHIVE_CONNECTION_ERROR_MESSAGE = {
-  title: "ARCHIVE CONNECTION ERROR",
-  description: "The archive could not be reached. Try again in a moment.",
+  title: "ERRO DE CONEXÃO COM O ARQUIVO",
+  description: "Não foi possível conectar ao arquivo. Tente novamente em instantes.",
 } as const;
 
 export const EMPTY_ENTITY_DETAIL_MESSAGE = {

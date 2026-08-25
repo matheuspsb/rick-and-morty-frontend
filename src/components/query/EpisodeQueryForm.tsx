@@ -26,10 +26,10 @@ export function EpisodeQueryForm({ form, onSubmit }: EpisodeQueryFormProps) {
     >
       <div className="flex flex-col gap-1">
         <h2 id={HEADING_ID} className="font-display text-archive-md tracking-archive-widest">
-          QUERY EPISODES
+          CONSULTAR EPISÓDIOS
         </h2>
         <p id={DESCRIPTION_ID} className="text-archive-base text-archive-muted">
-          Enter one or more episode IDs separated by comma
+          Digite um ou mais IDs de episódio separados por vírgula
         </p>
       </div>
 
@@ -48,7 +48,7 @@ export function EpisodeQueryForm({ form, onSubmit }: EpisodeQueryFormProps) {
           type="submit"
           className="rounded-archive border border-archive-accent bg-archive-accent px-5.5 font-display text-archive-lg tracking-archive-wider text-archive-bg transition-colors hover:border-archive-ink hover:bg-archive-ink"
         >
-          LOAD ARCHIVE
+          CARREGAR ARQUIVO
         </button>
       </div>
 

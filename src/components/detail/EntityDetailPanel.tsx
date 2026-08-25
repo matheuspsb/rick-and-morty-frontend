@@ -14,21 +14,21 @@ export function EntityDetailPanel({ entity }: EntityDetailPanelProps) {
   const sections = useMemo(
     () => [
       {
-        title: "ORIGIN",
+        title: "ORIGEM",
         rows: [
-          { label: "NAME", value: <span className="uppercase">{entity.origin.name}</span> },
+          { label: "NOME", value: <span className="uppercase">{entity.origin.name}</span> },
         ],
       },
       {
-        title: "LOCATION",
+        title: "LOCALIZAÇÃO",
         rows: [
-          { label: "NAME", value: <span className="uppercase">{entity.location.name}</span> },
+          { label: "NOME", value: <span className="uppercase">{entity.location.name}</span> },
         ],
       },
       {
-        title: "EPISODES",
+        title: "EPISÓDIOS",
         rows: [
-          { label: "COUNT", value: entity.episode.length },
+          { label: "TOTAL", value: entity.episode.length },
         ],
       },
     ],
@@ -38,7 +38,7 @@ export function EntityDetailPanel({ entity }: EntityDetailPanelProps) {
   return (
     <div className="flex flex-1 flex-col">
       <div className="flex items-baseline justify-between border-b border-archive-line pb-3">
-        <h2 className="font-display text-archive-md tracking-archive-widest">ENTITY DETAIL</h2>
+        <h2 className="font-display text-archive-md tracking-archive-widest">DETALHES DO PERSONAGEM</h2>
         <p className="font-mono text-archive-sm tracking-archive-wide text-archive-muted">
           ID: {padEntityId(entity.id)}
         </p>
