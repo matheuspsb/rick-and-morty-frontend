@@ -1,8 +1,8 @@
 # Rick and Morty Frontend
 
-Frontend em React (Field Archive) para consumir o [rick-morty-backend](../rick-morty-backend). Interface baseada em
-[rick_morty_field_archive_ui_guide.md](./rick_morty_field_archive_ui_guide.md) e no protótipo
-[Field Archive.dc.html](./Field%20Archive.dc.html).
+![Rick and Morty Field Archive](./src/assets/homepage.png)
+
+Frontend em React para o [rick-morty-backend](../rick-morty-backend).
 
 ## Stack
 

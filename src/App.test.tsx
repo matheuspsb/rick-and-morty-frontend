@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import App from "./App";
 
 function renderApp() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={queryClient}>
       <App />
@@ -13,10 +13,10 @@ function renderApp() {
 }
 
 describe("App", () => {
-  it("renders the search form", () => {
+  it("renders the Field Archive shell", () => {
     renderApp();
 
-    expect(screen.getByPlaceholderText("ID do personagem")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Buscar" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "FIELD ARCHIVE" })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("10,28")).toBeInTheDocument();
   });
 });
