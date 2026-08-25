@@ -50,7 +50,7 @@ describe("FieldArchivePage", () => {
     expect(getByEpisodesMock).not.toHaveBeenCalled();
   });
 
-  it("loads entities, selects the first one by default and switches selection on click", async () => {
+  it("loads entities with no default selection, and shows details on click", async () => {
     getByEpisodesMock.mockResolvedValue(CHARACTER_FIXTURES);
     const user = userEvent.setup();
     renderPage();
@@ -61,11 +61,17 @@ describe("FieldArchivePage", () => {
     await waitFor(() => expect(getByEpisodesMock).toHaveBeenCalledWith("10,28"));
 
     expect(await screen.findByText("3 PERSONAGENS OBSERVADOS")).toBeInTheDocument();
-    expect(screen.getAllByText("Rick Sanchez")).toHaveLength(2);
+    expect(screen.getAllByText("Rick Sanchez")).toHaveLength(1);
+    expect(screen.getByText("NENHUM PERSONAGEM SELECIONADO")).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /morty smith/i }));
 
     expect(screen.getAllByText("Morty Smith")).toHaveLength(2);
+
+    await user.click(screen.getByRole("button", { name: "← VOLTAR" }));
+
+    expect(screen.getAllByText("Morty Smith")).toHaveLength(1);
+    expect(screen.getByText("NENHUM PERSONAGEM SELECIONADO")).toBeInTheDocument();
   });
 
   it("shows the 404 archive error state when no episode record is found", async () => {

@@ -33,7 +33,7 @@ export function EpisodeQueryForm({ form, onSubmit }: EpisodeQueryFormProps) {
         </p>
       </div>
 
-      <div className="mt-4 flex gap-3.5">
+      <div className="mt-4 flex flex-col gap-3.5 sm:flex-row">
         <input
           {...register("episodeIds")}
           type="text"
@@ -42,11 +42,11 @@ export function EpisodeQueryForm({ form, onSubmit }: EpisodeQueryFormProps) {
           aria-labelledby={HEADING_ID}
           aria-describedby={errorMessage ? `${DESCRIPTION_ID} ${ERROR_ID}` : DESCRIPTION_ID}
           aria-invalid={errorMessage ? true : undefined}
-          className="max-w-107.5 flex-1 rounded-archive border border-archive-line bg-archive-panel px-3.5 py-3 font-mono text-archive-lg text-archive-ink outline-none focus-visible:border-archive-accent"
+          className="rounded-archive border border-archive-line bg-archive-panel px-3.5 py-3 font-mono text-archive-lg text-archive-ink outline-none focus-visible:border-archive-accent sm:max-w-107.5 sm:flex-1"
         />
         <button
           type="submit"
-          className="rounded-archive border border-archive-accent bg-archive-accent px-5.5 font-display text-archive-lg tracking-archive-wider text-archive-bg transition-colors hover:border-archive-ink hover:bg-archive-ink"
+          className="w-full rounded-archive border border-archive-accent bg-archive-accent px-5.5 py-3 font-display text-archive-lg tracking-archive-wider text-archive-bg transition-colors hover:border-archive-ink hover:bg-archive-ink sm:w-auto sm:py-0"
         >
           CARREGAR ARQUIVO
         </button>

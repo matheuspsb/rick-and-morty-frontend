@@ -10,9 +10,9 @@ export function FieldArchivePage() {
   const entitiesQuery = useObservedEntities(submittedEpisodeIds);
 
   return (
-    <div className="flex min-h-screen flex-col bg-archive-bg font-sans text-archive-ink xl:h-screen xl:overflow-hidden">
+    <div className="flex min-h-screen flex-col bg-archive-bg font-sans text-archive-ink lg:h-screen lg:overflow-hidden">
       <ArchiveHeader />
-      <div className={`flex flex-col xl:min-h-0 xl:flex-1 xl:grid ${ARCHIVE_SHELL_GRID_COLS}`}>
+      <div className={`flex flex-col lg:min-h-0 lg:flex-1 lg:grid ${ARCHIVE_SHELL_GRID_COLS}`}>
         <ArchiveSidebar />
         <ArchiveWorkspace
           key={submittedEpisodeIds ?? "idle"}

@@ -12,7 +12,7 @@ export function ArchiveSidebar() {
   return (
     <nav
       aria-label="Archive sections"
-      className="hidden flex-col justify-between gap-8 overflow-y-auto border-archive-line py-5.5 xl:flex xl:h-full xl:border-r"
+      className="hidden flex-col justify-between gap-8 overflow-y-auto border-archive-line py-5.5 lg:flex lg:h-full lg:border-r"
     >
       <ul className="flex flex-col gap-6.5">
         {NAV_ITEMS.map((item) => (

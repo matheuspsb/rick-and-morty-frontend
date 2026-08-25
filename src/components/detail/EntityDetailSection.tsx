@@ -14,9 +14,9 @@ interface EntityDetailSectionProps {
 
 function EntityDetailSectionComponent({ title, rows, bordered = true }: EntityDetailSectionProps) {
   return (
-    <div className={bordered ? "border-b border-archive-line px-4 py-3.5 last:border-b-0" : "px-4 py-3.5"}>
-      <h3 className="mb-3 font-display text-archive-lg tracking-archive-wider">{title}</h3>
-      <dl className={`grid ${LABEL_COLUMN_WIDE} gap-y-2.5 font-mono text-archive-sm tracking-archive-normal`}>
+    <div className={bordered ? "border-b border-archive-line px-3.5 py-3 last:border-b-0" : "px-3.5 py-3"}>
+      <h3 className="mb-2 font-display text-archive-base tracking-archive-wider">{title}</h3>
+      <dl className={`grid ${LABEL_COLUMN_WIDE} gap-y-2 font-mono text-archive-xs tracking-archive-normal`}>
         {rows.map((row) => (
           <div key={row.label} className="contents">
             <dt className="text-archive-muted">{row.label}</dt>

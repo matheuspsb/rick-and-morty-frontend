@@ -5,7 +5,7 @@ export function useSelectedEntity(entities: readonly Character[]) {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const selectedEntity = useMemo(
-    () => entities.find((entity) => entity.id === selectedId) ?? entities[0] ?? null,
+    () => entities.find((entity) => entity.id === selectedId) ?? null,
     [entities, selectedId],
   );
 
@@ -13,5 +13,9 @@ export function useSelectedEntity(entities: readonly Character[]) {
     setSelectedId(id);
   }, []);
 
-  return { selectedEntity, select };
+  const clear = useCallback(() => {
+    setSelectedId(null);
+  }, []);
+
+  return { selectedEntity, select, clear };
 }

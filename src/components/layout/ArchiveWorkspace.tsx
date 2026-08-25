@@ -18,11 +18,15 @@ interface ArchiveWorkspaceProps {
 export function ArchiveWorkspace({ form, onSubmit, submittedEpisodeIds, entitiesQuery }: ArchiveWorkspaceProps) {
   const entities = entitiesQuery.data ?? [];
   const { page, pageCount, pageItems, goToPage } = usePagination(entities, ENTITIES_PER_PAGE);
-  const { selectedEntity, select } = useSelectedEntity(entities);
+  const { selectedEntity, select, clear } = useSelectedEntity(entities);
 
   return (
     <>
-      <main className="border-archive-line px-7 py-6 xl:min-h-0 xl:overflow-y-auto xl:border-r">
+      <main
+        className={`border-archive-line px-7 py-6 lg:block lg:min-h-0 lg:overflow-y-auto lg:border-r ${
+          selectedEntity ? "hidden" : "block"
+        }`}
+      >
         <EpisodeQueryForm form={form} onSubmit={onSubmit} />
         <ArchiveResults
           submittedEpisodeIds={submittedEpisodeIds}
@@ -37,11 +41,16 @@ export function ArchiveWorkspace({ form, onSubmit, submittedEpisodeIds, entities
         />
       </main>
 
-      <aside className="flex flex-col px-6.5 py-6 xl:min-h-0 xl:overflow-y-auto">
+      <aside
+        className={`flex-col px-6.5 py-6 lg:flex lg:min-h-0 lg:overflow-y-auto ${
+          selectedEntity ? "flex" : "hidden"
+        }`}
+      >
         <ArchiveDetail
           submittedEpisodeIds={submittedEpisodeIds}
           isLoading={entitiesQuery.isLoading}
           selectedEntity={selectedEntity}
+          onBack={clear}
         />
       </aside>
     </>

@@ -8,15 +8,16 @@ interface ArchiveDetailProps {
   submittedEpisodeIds: string | null;
   isLoading: boolean;
   selectedEntity: Character | null;
+  onBack: () => void;
 }
 
-export function ArchiveDetail({ submittedEpisodeIds, isLoading, selectedEntity }: ArchiveDetailProps) {
+export function ArchiveDetail({ submittedEpisodeIds, isLoading, selectedEntity, onBack }: ArchiveDetailProps) {
   if (submittedEpisodeIds !== null && isLoading) {
     return <EntityDetailSkeleton />;
   }
 
   if (selectedEntity) {
-    return <EntityDetailPanel entity={selectedEntity} />;
+    return <EntityDetailPanel entity={selectedEntity} onBack={onBack} />;
   }
 
   return (
