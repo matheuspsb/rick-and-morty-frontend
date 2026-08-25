@@ -42,6 +42,18 @@ npm run lint      # eslint (type-checked)
 npm run build     # tsc -b && vite build
 ```
 
+## Deploy (Vercel)
+
+Projeto Vite padrão — a Vercel detecta o preset automaticamente (`npm run build`, output `dist`). Nenhum `vercel.json` é necessário: não há rotas client-side (sem router), então não há necessidade de rewrite para SPA.
+
+Configure na Vercel (Project Settings → Environment Variables):
+
+| Variável       | Valor                                              |
+|----------------|-----------------------------------------------------|
+| `VITE_API_URL` | URL do [rick-morty-backend](../rick-morty-backend) publicado (ex.: `https://seu-backend.vercel.app`) |
+
+`VITE_API_URL` é embutida no bundle **em build time** — se o backend mudar de URL, é preciso refazer o deploy do frontend (redeploy), não basta reiniciar.
+
 ## Estrutura
 
 ```
