@@ -33,6 +33,32 @@ npm run dev
 
 Por padrão espera o backend em `http://localhost:3000` (variável `VITE_API_URL`).
 
+## Rodando com Docker
+
+O [Dockerfile](Dockerfile) faz build multi-stage: compila o Vite (com `VITE_API_URL` embutida via `--build-arg`, já que a variável é resolvida em build time) e serve o resultado estático com nginx.
+
+```bash
+docker build -t rick-morty-frontend --build-arg VITE_API_URL=http://localhost:3000 .
+docker run -p 5173:80 rick-morty-frontend
+```
+
+Pra subir frontend **e** backend juntos com um comando só (via [docker-compose.yml](docker-compose.yml)), os dois repositórios precisam estar clonados **lado a lado, na mesma pasta pai**:
+
+```
+algum-diretorio/
+├── rick-and-morty-backend/
+└── rick-and-morty-frontend/    (este repositório)
+```
+
+```bash
+git clone https://github.com/matheuspsb/rick-and-morty-backend.git
+git clone https://github.com/matheuspsb/rick-and-morty-frontend.git
+cd rick-and-morty-frontend
+docker compose up --build
+```
+
+> O `docker-compose.yml` referencia o backend pelo caminho relativo `../rick-and-morty-backend` — se a pasta tiver outro nome, o build falha. O mesmo arquivo existe em ambos os repositórios, então `docker compose up` funciona de dentro de qualquer um dos dois.
+
 ## Testes e qualidade
 
 ```bash
